@@ -1,0 +1,20 @@
+{
+  "name": "blazingdaoo-subgraph",
+  "version": "0.1.0",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "init": "graph init --product hosted-service blazingdao/blazing",
+    "deployblaz": "graph deploy --product hosted-service blazingdao/blazing",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blazingdao/blazing"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.21.0",
+    "@graphprotocol/graph-ts": "^0.20.0"
+  },
+  "main": "truffle.js",
+  "repository": "git@github.com:BlazingDAO/blazingdao-subgraph.git",
+  "author": "blazingdao <blazingdao@protonmail.com>",
+  "license": "MIT",
+  "private": true
+}

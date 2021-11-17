@@ -1,0 +1,169 @@
+specVersion: 0.0.2
+description: Blazing Subgraph
+repository: https://github.com/BlazingDAO/blazingdao-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  #Staking Contract V2
+  - kind: ethereum/contract
+    name: BlazStakingV1
+    network: fantom
+    source:
+      address: "0x32D7C533013bf3a1573DC263F43F42fD2BEa7FBd"
+      abi: BlazStakingV1
+      startBlock: 20751990
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BlazStakingV1
+      abis:
+        - name: BlazStakingV1
+          file: ./abis/BlazingStaking.json
+        - name: StakedBlazERC20V1
+          file: ./abis/sBlazingToken.json
+        - name: BlazERC20
+          file: ./abis/BlazingToken.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: DAIBondV1
+          file: ./abis/DaiBondContract.json
+        - name: BLAZDAIBondV1
+          file: ./abis/BLAZDAIBondV1.json
+        - name: BlazCirculatingSupply
+          file: ./abis/BlazCirculatingSupply.json
+        - name: BlazBondingCalculator
+          file: ./abis/BlazingBondingCalculator.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+        - function: unstake(uint256,bool)
+          handler: handleUnstake
+      file: ./src/BlazStakingV1.ts
+  #Staking Contract V2 Helper
+  - kind: ethereum/contract
+    name: BlazStakingHelperV1
+    network: fantom
+    source:
+      address: "0xDe4811BA72c4D9A6f10a4437DB9E6571375C5323"
+      abi: BlazStakingHelperV1
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BlazStakingHelperV1
+      abis:
+        - name: BlazStakingV1
+          file: ./abis/BlazingStaking.json
+        - name: BlazStakingHelperV1
+          file: ./abis/StakingHelper.json
+        - name: StakedBlazERC20V1
+          file: ./abis/sBlazingToken.json
+        - name: BlazERC20
+          file: ./abis/BlazingToken.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: DAIBondV1
+          file: ./abis/DaiBondContract.json
+        - name: BLAZDAIBondV1
+          file: ./abis/BLAZDAIBondV1.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+      file: ./src/BlazStakingHelperV1.ts
+  # DAI Bond Contract V1
+  - kind: ethereum/contract
+    name: DAIBondV1
+    network: fantom
+    source:
+      address: "0x6f4Cd7D46BFED7Dd172529A3394869561fAB261A"
+      abi: DAIBondV1
+      startBlock: 20751999
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - DAIBondDeposit
+      abis:
+        - name: BlazStakingV1
+          file: ./abis/BlazingStaking.json
+        - name: StakedBlazERC20V1
+          file: ./abis/sBlazingToken.json
+        - name: BlazERC20
+          file: ./abis/BlazingToken.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: DAIBondV1
+          file: ./abis/DaiBondContract.json
+        - name: BLAZDAIBondV1
+          file: ./abis/BLAZDAIBondV1.json
+      callHandlers:
+        - function: deposit(uint256,uint256,address)
+          handler: handleDeposit
+        - function: redeem(address,bool)
+          handler: handleRedeem
+      file: ./src/DAIBondV1.ts
+  # BLAZ DAI LP Bond Contract V1
+  - kind: ethereum/contract
+    name: BLAZDAIBondV1
+    network: fantom
+    source:
+      address: "0x79B47c03B02019Af78Ee0de9B0b3Ac0786338a0d"
+      abi: BLAZDAIBondV1
+      startBlock: 20752001
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BLAZDAIBondV1
+      abis:
+        - name: BlazStakingV1
+          file: ./abis/BlazingStaking.json
+        - name: StakedBlazERC20V1
+          file: ./abis/sBlazingToken.json
+        - name: BlazERC20
+          file: ./abis/BlazingToken.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: DAIBondV1
+          file: ./abis/DaiBondContract.json
+        - name: BLAZDAIBondV1
+          file: ./abis/BLAZDAIBondV1.json
+      callHandlers:
+        - function: deposit(uint256,uint256,address)
+          handler: handleDeposit
+        - function: redeem(address,bool)
+          handler: handleRedeem
+      file: ./src/BLAZDAIBondV1.ts
+
+  - kind: ethereum/contract
+    name: StakedBlazERC20V1
+    network: fantom
+    source:
+      address: "0x3949f058238563803b5971711ad19551930c8209"
+      abi: StakedBlazERC20V1
+      startBlock: 20751986
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - StakedBlazERC20V1
+      abis:
+        - name: StakedBlazERC20V1
+          file: ./abis/sBlazingToken.json
+        - name: BlazERC20
+          file: ./abis/BlazingToken.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+      callHandlers:
+        - function: rebase(uint256,uint256)
+          handler: rebaseFunction
+      file: ./src/StakedBlazERC20V1.ts
