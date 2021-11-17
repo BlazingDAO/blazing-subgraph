@@ -9,9 +9,9 @@ dataSources:
     name: BlazStakingV1
     network: fantom
     source:
-      address: "0x32D7C533013bf3a1573DC263F43F42fD2BEa7FBd"
+      address: ""
       abi: BlazStakingV1
-      startBlock: 20751990
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -48,7 +48,7 @@ dataSources:
     name: BlazStakingHelperV1
     network: fantom
     source:
-      address: "0xDe4811BA72c4D9A6f10a4437DB9E6571375C5323"
+      address: ""
       abi: BlazStakingHelperV1
       startBlock: 0
     mapping:
@@ -81,9 +81,9 @@ dataSources:
     name: DAIBondV1
     network: fantom
     source:
-      address: "0x6f4Cd7D46BFED7Dd172529A3394869561fAB261A"
+      address: ""
       abi: DAIBondV1
-      startBlock: 20751999
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -114,9 +114,9 @@ dataSources:
     name: BLAZDAIBondV1
     network: fantom
     source:
-      address: "0x79B47c03B02019Af78Ee0de9B0b3Ac0786338a0d"
+      address: ""
       abi: BLAZDAIBondV1
-      startBlock: 20752001
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -147,9 +147,9 @@ dataSources:
     name: StakedBlazERC20V1
     network: fantom
     source:
-      address: "0x3949f058238563803b5971711ad19551930c8209"
+      address: ""
       abi: StakedBlazERC20V1
-      startBlock: 20751986
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

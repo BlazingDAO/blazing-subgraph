@@ -15,7 +15,7 @@ import {
   SBLAZ_ERC20_CONTRACT,
   STAKING_CONTRACT_V1,
   TREASURY_ADDRESS,
-  QUICK_BLAZ_DAI_PAIR,
+  SPOOKY_BLAZ_DAI_PAIR,
 } from "./Constants";
 import { dayFromTimestamp } from "./Dates";
 import { toDecimal } from "./Decimals";
@@ -96,7 +96,9 @@ function getSBlazSupply(transaction: Transaction): BigDecimal {
 function getMV_RFV(transaction: Transaction): BigDecimal[] {
   let daiERC20 = ERC20.bind(Address.fromString(DAI_ERC20_CONTRACT));
 
-  let blazDaiPair = UniswapV2Pair.bind(Address.fromString(QUICK_BLAZ_DAI_PAIR));
+  let blazDaiPair = UniswapV2Pair.bind(
+    Address.fromString(SPOOKY_BLAZ_DAI_PAIR)
+  );
   let treasury_address = TREASURY_ADDRESS;
   let daiBalance = daiERC20.balanceOf(Address.fromString(treasury_address));
 
@@ -108,8 +110,8 @@ function getMV_RFV(transaction: Transaction): BigDecimal[] {
   let blazDaiPOL = toDecimal(blazDaiBalance, 18)
     .div(blazDaiTotalLP)
     .times(BigDecimal.fromString("100"));
-  let blazDai_value = getPairUSD(blazDaiBalance, QUICK_BLAZ_DAI_PAIR);
-  let blazDai_rfv = getDiscountedPairUSD(blazDaiBalance, QUICK_BLAZ_DAI_PAIR);
+  let blazDai_value = getPairUSD(blazDaiBalance, SPOOKY_BLAZ_DAI_PAIR);
+  let blazDai_rfv = getDiscountedPairUSD(blazDaiBalance, SPOOKY_BLAZ_DAI_PAIR);
 
   let stableValue = daiBalance;
   let stableValueDecimal = toDecimal(stableValue, 18);

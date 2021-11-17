@@ -1,4 +1,4 @@
-import { QUICK_BLAZ_DAI_PAIR } from "./Constants";
+import { SPOOKY_BLAZ_DAI_PAIR } from "./Constants";
 import { Address, BigDecimal, BigInt, log } from "@graphprotocol/graph-ts";
 import { UniswapV2Pair } from "../../generated/BlazStakingV1/UniswapV2Pair";
 import { toDecimal } from "./Decimals";
@@ -7,7 +7,7 @@ let BIG_DECIMAL_1E9 = BigDecimal.fromString("1e9");
 let BIG_DECIMAL_1E12 = BigDecimal.fromString("1e12");
 
 export function getBLAZUSDRate(): BigDecimal {
-  let pair = UniswapV2Pair.bind(Address.fromString(QUICK_BLAZ_DAI_PAIR));
+  let pair = UniswapV2Pair.bind(Address.fromString(SPOOKY_BLAZ_DAI_PAIR));
 
   let reserves = pair.getReserves();
   let reserve0 = reserves.value0.toBigDecimal();

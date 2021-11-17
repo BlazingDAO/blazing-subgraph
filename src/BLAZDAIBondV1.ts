@@ -6,7 +6,10 @@ import { Deposit, Redemption } from "../generated/schema";
 import { loadOrCreateTransaction } from "./utils/Transactions";
 import { loadOrCreateBlaz, updateBlazBalance } from "./utils/Blaz";
 import { toDecimal } from "./utils/Decimals";
-import { BLAZ_DAI_LP_BOND_TOKEN, QUICK_BLAZ_DAI_PAIR } from "./utils/Constants";
+import {
+  BLAZ_DAI_LP_BOND_TOKEN,
+  SPOOKY_BLAZ_DAI_PAIR,
+} from "./utils/Constants";
 import { loadOrCreateToken } from "./utils/Tokens";
 import { createDailyBondRecord } from "./utils/DailyBond";
 import { getPairUSD } from "./utils/Price";
@@ -21,7 +24,7 @@ export function handleDeposit(call: DepositCall): void {
   deposit.transaction = transaction.id;
   deposit.blaz = blaz.id;
   deposit.amount = amount;
-  deposit.value = getPairUSD(call.inputs._amount, QUICK_BLAZ_DAI_PAIR);
+  deposit.value = getPairUSD(call.inputs._amount, SPOOKY_BLAZ_DAI_PAIR);
   deposit.maxPremium = toDecimal(call.inputs._maxPrice);
   deposit.token = token.id;
   deposit.timestamp = transaction.timestamp;
