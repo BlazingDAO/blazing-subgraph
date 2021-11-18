@@ -9,7 +9,7 @@ dataSources:
     name: BlazStakingV1
     network: fantom
     source:
-      address: ""
+      address: "0x85C2a6Bfd7F8Fed229A1AFDE2F9dF482EB2f7E51"
       abi: BlazStakingV1
       startBlock: 0
     mapping:
@@ -48,7 +48,7 @@ dataSources:
     name: BlazStakingHelperV1
     network: fantom
     source:
-      address: ""
+      address: "0xbBA4caD37924e9Bb579DfBB590a26d9b29Ea0089"
       abi: BlazStakingHelperV1
       startBlock: 0
     mapping:
@@ -81,7 +81,7 @@ dataSources:
     name: DAIBondV1
     network: fantom
     source:
-      address: ""
+      address: "0x501E36518ACee86Dd5c8a43825276eEA5Db3c022"
       abi: DAIBondV1
       startBlock: 0
     mapping:
@@ -114,7 +114,7 @@ dataSources:
     name: BLAZDAIBondV1
     network: fantom
     source:
-      address: ""
+      address: "0xEf9aFCBDF052277BFEA8e958B2FAc2C34aA6C6C8"
       abi: BLAZDAIBondV1
       startBlock: 0
     mapping:
@@ -147,7 +147,7 @@ dataSources:
     name: StakedBlazERC20V1
     network: fantom
     source:
-      address: ""
+      address: "0x77d40528749984ca49a1288deeDa9221c5f870ca"
       abi: StakedBlazERC20V1
       startBlock: 0
     mapping:
